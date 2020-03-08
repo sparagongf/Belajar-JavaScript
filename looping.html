@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Vue Beginner</title>
+        <style>
+            .red {
+                border: 2px solid red
+            }
+            .green {
+                border: 2px solid green
+            }
+        </style>
+    </head>
+    <body>
+        <div id="list">
+            <input v-model="newCats" v-on:keyup.enter="addkitty">
+            <button v-on:click="addkitty">
+                + Add
+            </button>
+            <ul>
+                <li v-for="long in cats"> 
+                    {{ long }}
+                </li>
+            </ul>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+        <script>
+            new Vue({
+                el: '#list',
+                data: {
+                    cats: [
+                        'kitkat',
+                        'fish',
+                        'fungkle',
+                        'hesoyam'
+                    ],
+                    newCats: ''
+                  },
+                methods: {
+                    addkitty: function() {
+                        return this.cats.push(this.newCats)
+                    }
+                }
+            }); 
+        </script>
+    </body>
+</html>
